@@ -12,7 +12,25 @@ class CounterWidget extends StatefulWidget {
 }
 
 class _CounterWidgetState extends State<CounterWidget> {
-  int counter = 1;
+  int _counter = 1;
+  final int _minCounter = 1;
+  final int _maxCounter = 10;
+
+  void _incrementCounter() {
+    setState(() {
+      if (_counter < _maxCounter) {
+        _counter++;
+      }
+    });
+  }
+
+  void _decrementCounter() {
+    setState(() {
+      if (_counter > _minCounter) {
+        _counter--;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,8 +40,9 @@ class _CounterWidgetState extends State<CounterWidget> {
           text: '-',
           onPressed: () {
             setState(() {
-              counter >= 1 && counter <= 10;
-              counter--;
+              if (_counter > _minCounter) {
+                _decrementCounter();
+              }
             });
           },
         ),
@@ -31,7 +50,7 @@ class _CounterWidgetState extends State<CounterWidget> {
             alignment: Alignment.center,
             width: 20,
             child: Text(
-              '$counter',
+              '$_counter',
               style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
@@ -41,8 +60,9 @@ class _CounterWidgetState extends State<CounterWidget> {
           text: '+',
           onPressed: () {
             setState(() {
-              counter >= 1 && counter <= 10;
-              counter++;
+              if (_counter < _maxCounter) {
+                _incrementCounter();
+              }
             });
           },
         ),

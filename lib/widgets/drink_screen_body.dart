@@ -81,7 +81,7 @@ class DrinkRequest extends StatelessWidget {
                 textColor: Colors.white,
                 width: 160,
                 textSize: 15,
-              )
+              ),
             ],
           ),
         ),

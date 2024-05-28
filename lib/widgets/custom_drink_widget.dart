@@ -10,7 +10,10 @@ class CustomDrinkWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, DrinkScreen.id, arguments: coffeeList);
+        Navigator.pushNamed(
+          context,
+          DrinkScreen.id,
+        );
       },
       child: SizedBox(
         height: 100,
